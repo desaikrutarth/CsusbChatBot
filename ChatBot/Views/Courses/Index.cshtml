@@ -1,0 +1,67 @@
+﻿@model IEnumerable<ChatBot.Models.Courses>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Courses</h2>
+
+<table class="table table-bordered table-hover" id="courseId">
+
+    <thead>
+
+        <tr>
+
+            <th>Course Number</th>
+            <th>Course Name</th>
+            <th>Time</th>
+            <th>Room No.</th>
+            <th>No. of Units</th>
+            <th>Professors</th>
+
+        </tr>
+
+    </thead>
+
+    <tbody>
+       
+
+    </tbody>
+
+</table>
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            $("#courseId").DataTable({
+                ajax: {
+                    url: "/api/courses",
+                    dataSrc: ""
+                },
+                columns: [
+                    {
+                        data: "number",
+                    },
+                    {
+                        data: "name"
+                    },
+                    {
+                        data: "time",                      
+                    },
+                    {
+                        data: "location",
+                    },
+                    {
+                        data: "noOfUnits",
+                    },
+                    {
+                        data: "professors.lname",
+                    },
+                ]
+            });
+
+        });
+    </script>
+}
+

@@ -1,0 +1,43 @@
+﻿@model ChatBot.Models.Professors
+@{
+    ViewBag.Title = "AddProfessor";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Add Professor</h2>
+
+@using (Html.BeginForm("Create", "Professors"))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.fname)
+        @Html.TextBoxFor(m => m.fname, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.lname)
+        @Html.TextBoxFor(m => m.lname, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.email)
+        @Html.TextBoxFor(m => m.email, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.phone)
+        @Html.TextBoxFor(m => m.phone, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.location)
+        @Html.TextBoxFor(m => m.location, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.officeHours)
+        @Html.TextBoxFor(m => m.officeHours, new { @class = "form-control" })
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+}
+
